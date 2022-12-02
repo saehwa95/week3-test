@@ -26,15 +26,17 @@ const App = () => {
       <div className="wrapper">
         <div className="write-box">
           <form onSubmit={addTodo}>
-            <input type="text" onChange={inputChangeHandler} />
-            <button type="submit">추가하기</button>
+            <input type="text" value={content} onChange={inputChangeHandler} />
+            <button>추가하기</button>
           </form>
         </div>
         <h1>Todo List</h1>
         <div className="todo-box">
-            <div className="todo-text">
-              <span>{todos.content}</span>
+          {todos.map((todo) => (
+            <div className="todo-text" key={todo.id}>
+              <span>{todo.content}</span>
             </div>
+          ))}
         </div>
       </div>
     </>
